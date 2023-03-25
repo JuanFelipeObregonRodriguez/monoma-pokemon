@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-function Dashboard() {
+import { HeaderAvatar  } from "../UI/Styles";
+function Avatar() {
   const navigate = useNavigate();
   const [menu, setMenu] = useState(false);
   useEffect(() => {
@@ -11,23 +11,26 @@ function Dashboard() {
     }
   }, []);
 
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
   return (
     <div>
-      <header>
-        <div className="avatar" onClick={() => setMenu(true)}>
-          <img src="https://via.placeholder.com/150" alt="Avatar" />
+      <HeaderAvatar>
+        <div className="avatar" onClick={() => setMenu(!menu)}>
+          <img src="https://cdn-icons-png.flaticon.com/512/287/287221.png" alt="Avatar" />
         </div>
-        {menu && ( <div className="dropdown">
-          <div className="dropdown-content">
-            <a href="#">Perfil</a>
-            <button onClick={handleLogout}>Cerrar Sesión</button>
+        {menu && (
+          <div className="dropdown">
+            <div className="dropdown-content">
+              <a href="#">Perfil</a>
+              <button onClick={handleLogout}>Cerrar Sesión</button>
+            </div>
           </div>
-        </div> )}
-      </header>
+        )}
+      </HeaderAvatar>
       <div className="cards-container">
         {/* Add code to render Pokemon cards here */}
       </div>
@@ -35,4 +38,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Avatar;

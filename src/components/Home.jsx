@@ -33,7 +33,11 @@ function Home() {
 
   const handlePokemonClick = (pokemon) => {
     setSelectedPokemon(pokemon);
-    setShowModal(true);
+
+    setTimeout(() => {
+      setShowModal(true);
+    }, 200);
+   
   };
 
   const handleModalClose = () => {
@@ -50,9 +54,9 @@ function Home() {
         </video>
       </VideoBackground>
       <Header>
+        <h1>Pokedex.io</h1>
         <Avatar />
       </Header>
-      <h1>Pokemon List</h1>
       <CardContainer>
         {pokemonList.map((pokemon) => (
           <Card

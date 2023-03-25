@@ -65,6 +65,7 @@ function Auth() {
           Email:
           <Input
             type="email"
+            placeholder="ingrese su email"
             value={email}
             onChange={handleEmailChange}
             required
@@ -72,10 +73,11 @@ function Auth() {
         </label>
         <br />
         <label>
-          Password:
+          Contraseña:
           <Input
             type={showPassword ? "text" : "password"}
             value={password}
+            placeholder="ingrese su contraseña"
             onChange={handlePasswordChange}
             required
           />
@@ -89,6 +91,7 @@ function Auth() {
         <br />
         <Button type="submit">Login</Button>
       </Form>
+      <img src="https://monoma.io/wp-content/uploads/2022/05/logo-white.png" alt="" />
     </Container>
   );
 }
