@@ -138,6 +138,8 @@ export const CardContainer = styled.div`
   margin-top: 50px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
@@ -148,7 +150,7 @@ export const CardContainer = styled.div`
   }
 
   @media (min-width: 1200px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 `;
 export const InfoContainer = styled.div`
