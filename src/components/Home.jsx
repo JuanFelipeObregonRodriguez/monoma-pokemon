@@ -4,17 +4,19 @@ import Card from "./Card";
 import Modal from "./Modal";
 import Avatar from "./Avatar";
 import PokemonInfo from "./PokemonInfo";
-import { Header, CardContainer, DashboardContainer, VideoBackground } from "../UI/Styles";
+import { Header, CardContainer, DashboardContainer, VideoBackground, ButtonPage, ListPage } from "../UI/Styles";
+
 function Home() {
   const [pokemonList, setPokemonList] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://pokeapi.co/api/v2/pokemon?limit=10"
+          `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${(currentPage-1)*10}`
         );
         const results = response.data.results;
         const pokemonData = await Promise.all(
@@ -29,15 +31,11 @@ function Home() {
       }
     }
     fetchData();
-  }, []);
+  }, [currentPage]);
 
   const handlePokemonClick = (pokemon) => {
     setSelectedPokemon(pokemon);
-
-    setTimeout(() => {
-      setShowModal(true);
-    }, 200);
-   
+    setShowModal(true);
   };
 
   const handleModalClose = () => {
@@ -45,8 +43,29 @@ function Home() {
     setShowModal(false);
   };
 
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const renderPagination = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= 10; i++) {
+      pageNumbers.push(i);
+    }
+    return (
+      <ListPage>
+        {pageNumbers.map((number) => (
+          <li key={number}>
+            <ButtonPage onClick={() => handlePageChange(number)}>
+              {number}
+            </ButtonPage>
+          </li>
+        ))}
+      </ListPage>
+    );
+  };
+
   return (
-    
     <DashboardContainer>
       <VideoBackground>
         <video autoPlay loop muted>
@@ -67,6 +86,7 @@ function Home() {
           />
         ))}
       </CardContainer>
+      {renderPagination()}
       {showModal && (
         <Modal onClose={handleModalClose}>
           <PokemonInfo selectedPokemon={selectedPokemon} />

@@ -307,3 +307,21 @@ export const HeaderAvatar = styled.header`
     }
   }
 `;
+export const ListPage = styled.ul`
+display: flex;
+margin-top: 40px;
+margin-bottom: 40px;
+flex-direction: row;
+justify-content: center;
+list-style: none;
+gap: 5px;
+margin-right: 32px;
+`;
+export const ButtonPage = styled.button`
+  border-radius: 50%;
+  padding: 8px;
+  width: 32px;
+  border: none; 
+  background-color: #FC1212;
+  color: #fff;
+`;
