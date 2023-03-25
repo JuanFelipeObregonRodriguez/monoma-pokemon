@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "./Card";
 import Modal from "./Modal";
-import Avatar from './Avatar'
+import Avatar from "./Avatar";
 import PokemonInfo from "./PokemonInfo";
-
+import { Header, CardContainer, DashboardContainer, VideoBackground } from "../UI/Styles";
 function Home() {
   const [pokemonList, setPokemonList] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
@@ -42,12 +42,18 @@ function Home() {
   };
 
   return (
-    <div>
-        <header>
+    
+    <DashboardContainer>
+      <VideoBackground>
+        <video autoPlay loop muted>
+          <source src="https://assets.pokemon.com//assets/cms2-es-es/img/misc/virtual-backgrounds/pokemon/grookey.mp4" type="video/mp4" />
+        </video>
+      </VideoBackground>
+      <Header>
         <Avatar />
-      </header>
-      <h1>Dashboard</h1>
-      <div className="card-container">
+      </Header>
+      <h1>Pokemon List</h1>
+      <CardContainer>
         {pokemonList.map((pokemon) => (
           <Card
             key={pokemon.id}
@@ -56,13 +62,13 @@ function Home() {
             onClick={() => handlePokemonClick(pokemon)}
           />
         ))}
-      </div>
+      </CardContainer>
       {showModal && (
         <Modal onClose={handleModalClose}>
           <PokemonInfo selectedPokemon={selectedPokemon} />
         </Modal>
       )}
-    </div>
+    </DashboardContainer>
   );
 }
 
