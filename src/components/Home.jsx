@@ -4,7 +4,14 @@ import Card from "./Card";
 import Modal from "./Modal";
 import Avatar from "./Avatar";
 import PokemonInfo from "./PokemonInfo";
-import { Header, CardContainer, DashboardContainer, VideoBackground, ButtonPage, ListPage } from "../UI/Styles";
+import {
+  Header,
+  CardContainer,
+  DashboardContainer,
+  VideoBackground,
+  ButtonPage,
+  ListPage,
+} from "../UI/Styles";
 
 function Home() {
   const [pokemonList, setPokemonList] = useState([]);
@@ -16,7 +23,9 @@ function Home() {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${(currentPage-1)*10}`
+          `https://pokeapi.co/api/v2/pokemon?limit=10&offset=${
+            (currentPage - 1) * 10
+          }`
         );
         const results = response.data.results;
         const pokemonData = await Promise.all(
@@ -69,7 +78,10 @@ function Home() {
     <DashboardContainer>
       <VideoBackground>
         <video autoPlay loop muted>
-          <source src="https://assets.pokemon.com//assets/cms2-es-es/img/misc/virtual-backgrounds/pokemon/grookey.mp4" type="video/mp4" />
+          <source
+            src="https://assets.pokemon.com//assets/cms2-es-es/img/misc/virtual-backgrounds/pokemon/grookey.mp4"
+            type="video/mp4"
+          />
         </video>
       </VideoBackground>
       <Header>

@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Form, Input, P, Button, ButtonMostrar, Container, VideoBackground, Header, Title, CardContainer } from "../UI/Styles";
+import { Form, Input, P, Button, ButtonMostrar, Container, VideoBackground } from "../UI/Styles";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 function Auth() {

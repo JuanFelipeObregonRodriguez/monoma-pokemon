@@ -7,34 +7,47 @@ export const Container = styled.div`
   max-width: 500px;
   margin: auto;
   margin-top: 100px;
-  color: #fff;
-   img {
+  color: #fff9f4;
+  img {
     margin-top: 60px;
     width: 300px;
-   }
+  }
+  @media (max-width: 768px) {
+    overflow: hidden;
+  }
 `;
 export const Form = styled.form`
   display: flex;
   width: 400px;
   font-family: "Lato", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   flex-direction: column;
   align-items: center;
   margin-bottom: 50x;
   border-radius: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   gap: 10px;
+  @media (max-width: 768px) {
+    width: 350px;
+  }
 `;
 export const Input = styled.input`
   margin-top: 20px;
   background-color: transparent;
   margin-bottom: 10px;
   padding: 10px;
-  border-color: #ff8484;
-  border-radius: 50px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   font-size: 16px;
   margin-left: 10px;
   color: #fff;
+  border: none;
+  border-bottom: 2px solid #ff8484;
+  outline: none;
+  &::-webkit-contacts-auto-fill-button {
+    background-color: transparent;
+  }
+  @media (max-width: 768px) {
+    width: 140px;
+  }
 `;
 export const Button = styled.button`
   padding: 10px 40px;
@@ -57,12 +70,12 @@ export const Button = styled.button`
 `;
 export const ButtonMostrar = styled.button`
   margin-top: 20px;
-  padding: 10px;
+  padding: 5px;
   margin-left: 5px;
   background-color: #F64545;
   color: #fff;
   border: none;
-  border-radius: 80px;
+  border-radius: 40px;
   cursor: pointer;
   transition: ease-out 0.3s;
   &:hover {
@@ -71,6 +84,10 @@ export const ButtonMostrar = styled.button`
   @media (hover: none) {
     button:hover {
       background-color: #FC1212;
+    }
+    @media (max-width: 768px) {
+      margin-top: 25px;
+      float: right;
     }
 `;
 export const P = styled.p`
@@ -109,7 +126,8 @@ export const VideoBackground = styled.div`
   }
 `;
 export const DashboardContainer = styled.div`
-  font-family: "Lato", sans-serif;
+font-family: "Lato", sans-serif;
+font-family: "Ubuntu", sans-serif;
   color: #fff;
 `;
 export const Header = styled.header`
@@ -136,7 +154,6 @@ export const CardContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
   gap: 20px;
   margin-top: 50px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -168,48 +185,50 @@ export const InfoImage = styled.img`
   max-width: 100px;
   margin-bottom: 40px;
 `;
- export const TextInfo = styled.div`
- display: flex;
- flex-direction: column;
- align-items: center;
- font-size: 13px;
- margin-bottom: 40px;
- color: #102550;
- font-weight: bold;
-
-`
+export const TextInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 40px;
+  color: #102550;
+  font-weight: bold;
+  h2{
+    text-transform: uppercase;
+  }
+`;
 export const TextContainer = styled.div`
- display: flex;
- flex-direction: row;
- gap: 100px;
- .weight {
-  background-color: #FC1212;
-  padding: 10px;
-  border-radius: 50px;
- }
- .height {
-  padding: 10px;
- }
-`
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  .weight {
+    background-color: #fc1212;
+    padding: 10px;
+    border-radius: 50px;
+  }
+  .height {
+    padding: 10px;
+  }
+`;
 export const InfoAbilities = styled.div`
-display: flex;
-flex-direction: row;
-gap: 30px;
-margin-right: auto;
-background-color: #f64545;
-border-radius: 25px;
-width: 300px;
-height: 200px;
-font-size: 13px;
-color: #102550;
-p{
-margin-left: 5px;
-}
-img{
-  width: 100px;
-}
-
-`
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  background-color: #f64545;
+  border-radius: 25px;
+  width: 300px;
+  height: 200px;
+  font-size: 13px;
+  color: #102550;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  p {
+    margin-left: 12px;
+    
+  }
+  img {
+    width: 100px;
+  }
+`;
 export const InfoList = styled.ul`
   padding: 0;
 `;
@@ -219,7 +238,7 @@ export const InfoListItem = styled.li`
   margin-left: -20px;
   margin-right: 40px;
   list-style: none;
-  color: #FFF26C;
+  color: #fff26c;
   text-shadow: 1px 1px 0px #000;
 `;
 export const CardsContainer = styled.div`
@@ -230,6 +249,7 @@ export const CardsContainer = styled.div`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   background-color: #fc1212;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -310,20 +330,33 @@ export const HeaderAvatar = styled.header`
   }
 `;
 export const ListPage = styled.ul`
-display: flex;
-margin-top: 40px;
-margin-bottom: 40px;
-flex-direction: row;
-justify-content: center;
-list-style: none;
-gap: 5px;
-margin-right: 32px;
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  gap: 5px;
+  margin-right: 32px;
 `;
 export const ButtonPage = styled.button`
   border-radius: 50%;
   padding: 8px;
   width: 32px;
-  border: none; 
-  background-color: #FC1212;
+  border: none;
+  background-color: #fc1212;
   color: #fff;
+  transition: ease-out 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  &:hover {
+    background-color: #FC1212;
+  }
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  @media (hover: none) {
+    button:hover {
+      background-color: #FC1212;
+    }
 `;
